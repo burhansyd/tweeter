@@ -6,15 +6,16 @@
   color: #FFFF;
   padding-left: 1.5em;
   padding-right: 1.5em;
+  position: absolute;
 }
 
 #dDicon {
-  padding-top: 2em;
+  padding-top: 2.5em;
   position: absolute; right: 4.5em;
 }
 
 #slogan {
-  padding-top: 1em;
+  padding-top: 1.5em;
   position: absolute; right: 1.5em;
 }
 
