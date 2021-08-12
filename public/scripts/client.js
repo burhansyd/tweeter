@@ -5,34 +5,9 @@
  */
 
 $(document).ready(function () {
-  renderTweets(tweetData);
   submitTweet();
+  loadTweets();
 });
-
-const tweetData = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-        "handle": "@SirIsaac"
-      },
-    "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "James Taptellis",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-        "handle": "@latrellgod"
-      },
-    "content": {
-        "text": "If I see the latrell, I do the latrell!"
-      },
-    "created_at": 1461116232227
-  }
-];
 
 const createTweet = function(tweet) {
 
@@ -81,4 +56,14 @@ const submitTweet = function() {
     });
     console.log(event);
   });
+};
+
+const loadTweets = function() {
+  $.ajax({
+    url: "/tweets",
+    method: "GET",
+    dataType: "JSON",
+  }).then(function(response) {
+    renderTweets(response);
+  })
 };
