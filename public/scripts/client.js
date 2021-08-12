@@ -5,27 +5,35 @@
  */
 
 $(document).ready(function () {
-  createTweet(tweetData);
+  renderTweets(tweetData);
 });
 
-const tweetData = {
-  "user": {
-    "name": "Newton",
-    "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
-    },
-  "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-  "created_at": 1461116232227
-}
+const tweetData = [
+  {
+    "user": {
+      "name": "Newton",
+      "avatars": "https://i.imgur.com/73hZDYK.png",
+        "handle": "@SirIsaac"
+      },
+    "content": {
+        "text": "If I have seen further it is by standing on the shoulders of giants"
+      },
+    "created_at": 1461116232227
+  },
+  {
+    "user": {
+      "name": "James Taptellis",
+      "avatars": "https://i.imgur.com/73hZDYK.png",
+        "handle": "@latrellgod"
+      },
+    "content": {
+        "text": "If I see the latrell, I do the latrell!"
+      },
+    "created_at": 1461116232227
+  }
+];
 
-const createTweet = function (tweet) {
-
-  const date = new Date(Date.now());
-  const time = new Date(tweet.created_at);
-  const diffTime = Math.abs(time - date);
-  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+const createTweet = function(tweet) {
 
   const $tweet = $(`<article class="tweet">
         <header>
@@ -37,7 +45,7 @@ const createTweet = function (tweet) {
         </header>
         <p><b>${tweet.content.text}</b></p>
         <footer>
-          <output>${time}</output>
+          <output>${timeago.format(tweet.created_at)}</output>
           <div>
             <i class="fas fa-flag"></i>
             <i class="fas fa-retweet"></i>
@@ -45,6 +53,13 @@ const createTweet = function (tweet) {
           </div>
         </footer>
       </article>`)
+  
+  return $tweet;
+};
 
-  $('.container').append($tweet)
+const renderTweets = function(tweets) {
+  for (let tweetObj of tweets) {
+    const appendableTweet = createTweet(tweetObj);
+    $('.container').append(appendableTweet);
+  }
 }
