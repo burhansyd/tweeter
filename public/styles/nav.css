@@ -6,7 +6,9 @@
   color: #FFFF;
   padding-left: 1.5em;
   padding-right: 1.5em;
-  position: absolute;
+  position: fixed;
+  top: 0;
+  width: 100%;
   z-index: 2;
 }
 
