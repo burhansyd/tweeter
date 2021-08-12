@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -33,7 +34,7 @@
       <i class="fas fa-angle-double-down" id="dDicon"></i>
     </nav>
 
-    <header>
+    <header class="header">
       <div>
           <img src="/images/profile-hex.png"> 
       </div>
@@ -55,20 +56,24 @@
           </div>
         </form>
       </section>
-      <section class="tweet-container">
-        <div>
-          <i class="far fa-user"></i>
-          <span>Burhan</span>
+      <article class="tweet">
+        <header>
+          <div>
+            <i class="far fa-user"></i>
+            <span>Burhan Syed</span>
+          </div>
           <span>@Burhan</span>
-        </div>
-        <p>Today, I went outside and saw a butterfly flying in the sky!</p>
-        <div>
+        </header>
+        <p><b>Today, I went outside and saw a butterfly flying in the sky!</b></p>
+        <footer>
           <output>10 days ago</output>
-          <i class="fas fa-flag"></i>
-          <i class="fas fa-retweet"></i>
-          <i class="fas fa-heart"></i>
-        </div>
-      </section>
+          <div>
+            <i class="fas fa-flag"></i>
+            <i class="fas fa-retweet"></i>
+            <i class="fas fa-heart"></i>
+          </div>
+        </footer>
+      </article>
     </main>
   </body>
 </html>

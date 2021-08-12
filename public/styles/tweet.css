@@ -1,0 +1,27 @@
+.tweet {
+  border: 10px;
+  padding: 1em;
+  border: solid;
+}
+
+.tweet header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.tweet p {
+  padding: 0.5em;
+  padding-bottom: 1.5em;
+  border-bottom: solid;
+}
+
+.tweet footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.tweet header div span {
+  padding-left: 10px;
+}
