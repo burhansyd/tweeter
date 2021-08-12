@@ -6,6 +6,7 @@
 
 $(document).ready(function () {
   renderTweets(tweetData);
+  submitTweet();
 });
 
 const tweetData = [
@@ -63,3 +64,21 @@ const renderTweets = function(tweets) {
     $('.container').append(appendableTweet);
   }
 }
+
+const submitTweet = function() {
+  console.log("works");
+  $("form").submit(function(event) {
+    event.preventDefault();
+    const formData = $('form').serialize();
+    $.ajax({
+      type: "POST",
+      url: "/tweets",
+      data: formData,
+      dataType: "JSON",
+      success: function (data) {
+        
+      }
+    });
+    console.log(event);
+  });
+};

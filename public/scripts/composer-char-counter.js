@@ -13,7 +13,7 @@ const decreaseCharCount = () => {
 const overLimit = () => charsLeft < 0;
 
 $(document).ready(function () {
-  $('#tweet-text').on('keydown', function (event) {
+  $('#tweet-text').on('keydown', function(event) {
     if (event.keyCode === 8) {
       if (charsLeft < 140) {
         increaseCharCount();
