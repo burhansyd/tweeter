@@ -6,7 +6,7 @@
 
 $(document).ready(function () {
   $("form").submit(submit);
-  loadTweets();
+  loadTweets(renderTweets);
 });
 
 const escape = (str) => {
@@ -46,30 +46,55 @@ const renderTweets = function(tweets) {
   }
 }
 
+const renderLatestTweet = function(tweets) {
+  tweets.forEach((tweetObj, index) => {
+    if (index === (tweets.length - 1)) {
+      const appendableTweet = createTweet(tweetObj);
+      $('.tweet-feed').prepend(appendableTweet);
+    }
+  });
+}
+
 const submit = function(event) {
+  
   if ($('#tweet-text').val() === "" || $('#tweet-text').val() === null) {
     event.preventDefault();
-    alert("You can't say nothing!");
-    loadTweets();
+    return retErrorMessage("You have nothing to say?!")
   }
+  
   if (Number($('.counter').val()) < 0) {
     event.preventDefault();
-    alert("Relax Stephen King. It's a tweet, not a novel!");
-    loadTweets();
+    return retErrorMessage("Relax Stephen King. It's a tweet, not a novel!");
   }
+  
   event.preventDefault();
+
   const formData = $('form').serialize();
-  $('.tweet-feed').empty();
-  $.post("/tweets", formData).then((data) => {
-    loadTweets();
+
+  $.post("/tweets", formData).then(() => {
+
+    $('#tweet-text').val('');
+    $('.counter').val(140);
+    loadTweets(renderLatestTweet)
+
   });
+
 };
 
-const loadTweets = function() {
+const loadTweets = function(render) {
+
+  $('#error-message').hide();
+
   $.ajax({
     url: "/tweets",
     method: "GET",
   }).then(function(response) {
-    renderTweets(response);
+    render(response);
   })
+  
 };
+
+const retErrorMessage = function(message) {
+  $('#error-message').val("yo bro");
+  $('#error-message').slideDown("slow");
+}

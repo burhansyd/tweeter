@@ -1,6 +1,6 @@
 .new-tweet {
-  flex-direction: column;
   width: 100%;
+  align-items: center;
 }
 
 textarea {
@@ -33,4 +33,12 @@ button {
 
 .negative-count{
   color: #ff0000;
+}
+
+#error-message {
+  height: 30px;
+  width: 100%;
+  border: solid crimson;
+  background-color: lightcoral;
+  color: #ffff;
 }
