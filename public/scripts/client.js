@@ -5,9 +5,15 @@
  */
 
 $(document).ready(function () {
-  submitTweet();
+  $("form").submit(submit);
   loadTweets();
 });
+
+const escape = (str) => {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
 
 const createTweet = function(tweet) {
 
@@ -19,7 +25,7 @@ const createTweet = function(tweet) {
           </div>
           <span>${tweet.user.handle}</span>
         </header>
-        <p><b>${tweet.content.text}</b></p>
+        <p><b>${escape(tweet.content.text)}</b></p>
         <footer>
           <output>${timeago.format(tweet.created_at)}</output>
           <div>
@@ -36,25 +42,26 @@ const createTweet = function(tweet) {
 const renderTweets = function(tweets) {
   for (let tweetObj of tweets) {
     const appendableTweet = createTweet(tweetObj);
-    $('.container').append(appendableTweet);
+    $('.tweet-feed').prepend(appendableTweet);
   }
 }
 
-const submitTweet = function() {
-  console.log("works");
-  $("form").submit(function(event) {
+const submit = function(event) {
+  if ($('#tweet-text').val() === "" || $('#tweet-text').val() === null) {
     event.preventDefault();
-    const formData = $('form').serialize();
-    $.ajax({
-      type: "POST",
-      url: "/tweets",
-      data: formData,
-      dataType: "JSON",
-      success: function (data) {
-        
-      }
-    });
-    console.log(event);
+    alert("You can't say nothing!");
+    loadTweets();
+  }
+  if (Number($('.counter').val()) < 0) {
+    event.preventDefault();
+    alert("Relax Stephen King. It's a tweet, not a novel!");
+    loadTweets();
+  }
+  event.preventDefault();
+  const formData = $('form').serialize();
+  $('.tweet-feed').empty();
+  $.post("/tweets", formData).then((data) => {
+    loadTweets();
   });
 };
 
@@ -62,7 +69,6 @@ const loadTweets = function() {
   $.ajax({
     url: "/tweets",
     method: "GET",
-    dataType: "JSON",
   }).then(function(response) {
     renderTweets(response);
   })
