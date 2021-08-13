@@ -1,5 +1,3 @@
-const overLimit = () => charsLeft < 0;
-
 $(document).ready(function () {
   $('#tweet-text').on('input', function(event) {
     const maxCharCount = 140;
