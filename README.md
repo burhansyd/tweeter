@@ -22,8 +22,8 @@ TinyApp is a full stack web application built with Node and Express that allows 
 
 ## Final Product
 
-!["Writing a tweet on Tweeter!"](https://github.com/burhansyd/tinyapp/blob/master/docs/Screen%20Shot%202021-08-05%20at%208.42.23%20PM.png?raw=true)
+!["Writing a tweet on Tweeter!"](https://github.com/burhansyd/tweeter/blob/master/public/images/Screen%20Shot%202021-08-13%20at%206.54.44%20PM.png?raw=true)
 
-!["Tweeter feed with updated tweet!"](https://github.com/burhansyd/tinyapp/blob/master/docs/Screen%20Shot%202021-08-05%20at%208.42.48%20PM.png?raw=true)
+!["Tweeter feed with updated tweet!"](https://github.com/burhansyd/tweeter/blob/master/public/images/Screen%20Shot%202021-08-13%20at%206.55.34%20PM.png?raw=true)
 
-!["Tweeter in mobile/tablet!"](https://github.com/burhansyd/tinyapp/blob/master/docs/Screen%20Shot%202021-08-05%20at%208.43.06%20PM.png?raw=true)
+!["Tweeter in mobile/tablet!"](https://github.com/burhansyd/tweeter/blob/master/public/images/Screen%20Shot%202021-08-13%20at%206.56.01%20PM.png?raw=true)
