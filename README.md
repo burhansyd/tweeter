@@ -15,3 +15,15 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+
+# TinyApp Project
+
+TinyApp is a full stack web application built with Node and Express that allows users to shorten long URLs (à la bit.ly).
+
+## Final Product
+
+!["Writing a tweet on Tweeter!"](https://github.com/burhansyd/tinyapp/blob/master/docs/Screen%20Shot%202021-08-05%20at%208.42.23%20PM.png?raw=true)
+
+!["Tweeter feed with updated tweet!"](https://github.com/burhansyd/tinyapp/blob/master/docs/Screen%20Shot%202021-08-05%20at%208.42.48%20PM.png?raw=true)
+
+!["Tweeter in mobile/tablet!"](https://github.com/burhansyd/tinyapp/blob/master/docs/Screen%20Shot%202021-08-05%20at%208.43.06%20PM.png?raw=true)
