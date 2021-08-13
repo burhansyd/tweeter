@@ -16,7 +16,6 @@ const escape = (str) => {
 };
 
 const createTweet = function(tweet) {
-
   const $tweet = $(`<article class="tweet">
         <header>
           <div>
@@ -56,7 +55,6 @@ const renderLatestTweet = function(tweets) {
 }
 
 const submit = function(event) {
-  
   if ($('#tweet-text').val() === "" || $('#tweet-text').val() === null) {
     event.preventDefault();
     return retErrorMessage("You have nothing to say?!")
@@ -78,11 +76,9 @@ const submit = function(event) {
     loadTweets(renderLatestTweet)
 
   });
-
 };
 
 const loadTweets = function(render) {
-
   $('#error-message').hide();
 
   $.ajax({
@@ -90,8 +86,7 @@ const loadTweets = function(render) {
     method: "GET",
   }).then(function(response) {
     render(response);
-  })
-  
+  }) 
 };
 
 const retErrorMessage = function(message) {
