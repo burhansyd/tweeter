@@ -64,7 +64,7 @@ const submit = function(event) {
   
   if (Number($('.counter').val()) < 0) {
     event.preventDefault();
-    return retErrorMessage("Relax Stephen King. It's a tweet, not a novel!");
+    return retErrorMessage("Relax Stephen King. It's a Tweet, not a novel!");
   }
   
   event.preventDefault();
@@ -95,6 +95,6 @@ const loadTweets = function(render) {
 };
 
 const retErrorMessage = function(message) {
-  $('#error-message').val("yo bro");
+  $('#error-message').text(message);
   $('#error-message').slideDown("slow");
 }
